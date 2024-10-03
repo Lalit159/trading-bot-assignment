@@ -2,6 +2,7 @@ import express, { Request, Response } from 'express';
 import dotenv from 'dotenv';
 import { fetchStockPrices } from './services/stockService';
 import winston from 'winston';
+import config from '../config.json'; // Import the configuration file
 
 // Load environment variables
 dotenv.config();
@@ -26,7 +27,7 @@ const PORT = process.env.PORT || 3000;
 app.use(express.json());
 
 // Variables to track bot's balance, stock position, and trade history
-let balance = parseFloat(process.env.INITIAL_BALANCE || '10000');
+let balance = config.initial_balance; // Use initial balance from config
 let lastTradePrice: number | null = null;
 let position: 'buy' | 'sell' | null = null;
 let tradeHistory: Array<{ type: string; price: number; balance: number }> = [];
@@ -44,7 +45,7 @@ app.get('/trade-summary', (req: Request, res: Response) => {
     });
 });
 
-// Monitor stock prices every 5 seconds
+// Monitor stock prices based on configured interval
 setInterval(async () => {
     try {
         const currentStockPrice = await fetchStockPrices();
@@ -52,8 +53,8 @@ setInterval(async () => {
 
         // Trading logic
         if (lastTradePrice !== null) {
-            // Sell condition: Sell if the stock price rises by 3% or more
-            if (position === 'buy' && currentStockPrice >= lastTradePrice * 1.03) {
+            // Sell condition: Sell if the stock price rises by configured percentage
+            if (position === 'buy' && currentStockPrice >= lastTradePrice * config.sell_threshold) {
                 const profit = currentStockPrice - lastTradePrice!;
                 balance += profit; // Update balance with profit
                 logger.info(`Sold at ${currentStockPrice}. New balance: ${balance}`);
@@ -61,8 +62,8 @@ setInterval(async () => {
                 position = 'sell'; // Update position
                 lastTradePrice = null; // Reset lastTradePrice after selling
             }
-            // Buy condition: Buy if the stock price drops by 2% or more
-            else if (position === 'sell' && currentStockPrice <= lastTradePrice! * 0.98) {
+            // Buy condition: Buy if the stock price drops by configured percentage
+            else if (position === 'sell' && currentStockPrice <= lastTradePrice! * config.buy_threshold) {
                 balance -= currentStockPrice; // Deduct from balance to simulate a buy
                 logger.info(`Bought at ${currentStockPrice}. New balance: ${balance}`);
                 tradeHistory.push({ type: 'buy', price: currentStockPrice, balance }); // Record trade
@@ -80,7 +81,7 @@ setInterval(async () => {
     } catch (error) {
         logger.error(`Error fetching stock price: ${error}`);
     }
-}, 5000);
+}, config.price_check_interval); // Use configured interval for price checks
 
 // Start the server
 app.listen(PORT, () => {

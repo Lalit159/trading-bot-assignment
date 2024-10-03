@@ -1,0 +1,6 @@
+{
+    "initial_balance": 10000,
+    "buy_threshold": 0.98,
+    "sell_threshold": 1.03,
+    "price_check_interval": 5000
+}
