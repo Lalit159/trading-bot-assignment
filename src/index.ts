@@ -10,18 +10,30 @@ const PORT = process.env.PORT || 3000;
 
 app.use(express.json());
 
-// Health check
+// Variables to track bot's balance and stock position
+let balance = parseFloat(process.env.INITIAL_BALANCE || '10000');
+let lastTradePrice: number | null = null;
+let position: 'buy' | 'sell' | null = null;
+
+// Basic route for health check
 app.get('/', (req: Request, res: Response) => {
-  res.send('Server is running fine!');
+    res.send('Trading bot is running...');
 });
 
 // Monitor stock prices every 5 seconds
 setInterval(async () => {
-    const price = await fetchStockPrices();
-    console.log(`Current Stock Price: ${price}`);
+    const currentStockPrice = await fetchStockPrices();
+    console.log(`Current Stock Price: ${currentStockPrice}`);
+
+    // Placeholder for trading logic
+    if (lastTradePrice && position) {
+        console.log(`Current position: ${position}. Last trade price: ${lastTradePrice}`);
+    } else {
+        console.log('No active trades yet.');
+    }
 }, 5000);
 
-// Start server
+// Start the server
 app.listen(PORT, () => {
-  console.log(`Server is running on http://localhost:${PORT}`);
+    console.log(`Server is running on http://localhost:${PORT}`);
 });
