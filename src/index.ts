@@ -31,6 +31,9 @@ let balance = config.initial_balance; // Use initial balance from config
 let lastTradePrice: number | null = null;
 let position: 'buy' | 'sell' | null = null;
 let tradeHistory: Array<{ type: string; price: number; balance: number }> = [];
+let totalTrades = 0; // Track total number of trades
+let winningTrades = 0; // Track number of winning trades
+let totalProfitLoss = 0; // Track total profit/loss
 
 // Basic route for health check
 app.get('/', (req: Request, res: Response) => {
@@ -42,6 +45,10 @@ app.get('/trade-summary', (req: Request, res: Response) => {
     res.json({
         balance,
         tradeHistory,
+        totalTrades,
+        winningTrades,
+        winRate: totalTrades > 0 ? (winningTrades / totalTrades) * 100 : 0, // Calculate win rate
+        totalProfitLoss,
     });
 });
 
@@ -57,6 +64,9 @@ setInterval(async () => {
             if (position === 'buy' && currentStockPrice >= lastTradePrice * config.sell_threshold) {
                 const profit = currentStockPrice - lastTradePrice!;
                 balance += profit; // Update balance with profit
+                totalProfitLoss += profit; // Update total profit/loss
+                winningTrades++; // Increment winning trades
+                totalTrades++; // Increment total trades
                 logger.info(`Sold at ${currentStockPrice}. New balance: ${balance}`);
                 tradeHistory.push({ type: 'sell', price: currentStockPrice, balance }); // Record trade
                 position = 'sell'; // Update position
@@ -69,6 +79,7 @@ setInterval(async () => {
                 tradeHistory.push({ type: 'buy', price: currentStockPrice, balance }); // Record trade
                 position = 'buy'; // Update position
                 lastTradePrice = currentStockPrice; // Update lastTradePrice
+                totalTrades++; // Increment total trades
             }
         } else {
             // Initialize first trade as a buy
@@ -77,6 +88,7 @@ setInterval(async () => {
             tradeHistory.push({ type: 'buy', price: currentStockPrice, balance }); // Record trade
             position = 'buy'; // Set initial position
             lastTradePrice = currentStockPrice; // Set lastTradePrice to current price
+            totalTrades++; // Increment total trades
         }
     } catch (error) {
         logger.error(`Error fetching stock price: ${error}`);
