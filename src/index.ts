@@ -1,5 +1,6 @@
 import express, { Request, Response } from 'express';
 import dotenv from 'dotenv';
+import { fetchStockPrices } from './services/stockService';
 
 // Load environment variables
 dotenv.config();
@@ -13,6 +14,12 @@ app.use(express.json());
 app.get('/', (req: Request, res: Response) => {
   res.send('Server is running fine!');
 });
+
+// Monitor stock prices every 5 seconds
+setInterval(async () => {
+    const price = await fetchStockPrices();
+    console.log(`Current Stock Price: ${price}`);
+}, 5000);
 
 // Start server
 app.listen(PORT, () => {
