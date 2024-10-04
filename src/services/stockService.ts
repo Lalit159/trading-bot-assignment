@@ -9,7 +9,7 @@ export const fetchStockPrices = async (): Promise<number> => {
         const price = response.data.price;
         return price;
     } catch (error) {
-        console.error('Error fetching stock prices:', error);
+        // console.error('Error fetching stock prices:', error);
         // Fallback to a random price in case of error
         return generateRandomPrice();
     }

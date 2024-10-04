@@ -72,7 +72,7 @@ The bot will begin monitoring stock prices based on the configured interval.
       { "type": "sell", "price": 102, "balance": 10100 }
     ],
     "totalTrades": 2,
-    "winningTrades": 1,
+    "winningTrades": 1, // incremented only on a successful sale
     "winRate": 50,
     "totalProfitLoss": 200
   }
@@ -109,6 +109,3 @@ You can test the application using Postman or any other API client.
 
 ## Conclusion
 This trading bot serves as a foundational project to understand trading logic, API interactions, and real-time data handling. It can be further enhanced with more complex strategies and integration with real-world APIs to operate in actual financial markets.
-
-## License
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.

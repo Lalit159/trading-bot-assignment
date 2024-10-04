@@ -1,0 +1,37 @@
+{"level":"info","message":"Server is running on http://localhost:3000","timestamp":"2024-10-04T05:02:55.130Z"}
+{"level":"info","message":"Current Stock Price: 143.61101579476053","timestamp":"2024-10-04T05:03:05.950Z"}
+{"level":"info","message":"First trade: Bought at 143.61101579476053. New balance: 9856.38898420524","timestamp":"2024-10-04T05:03:05.951Z"}
+{"level":"info","message":"Current Stock Price: 135.82234853159184","timestamp":"2024-10-04T05:03:05.955Z"}
+{"level":"info","message":"Current Stock Price: 145.2955815891195","timestamp":"2024-10-04T05:03:10.771Z"}
+{"level":"info","message":"Current Stock Price: 113.22103187430648","timestamp":"2024-10-04T05:03:21.015Z"}
+{"level":"info","message":"Current Stock Price: 146.66689212241755","timestamp":"2024-10-04T05:03:21.017Z"}
+{"level":"info","message":"Current Stock Price: 69.71650593156366","timestamp":"2024-10-04T05:03:25.878Z"}
+{"level":"info","message":"Current Stock Price: 86.35670654988148","timestamp":"2024-10-04T05:03:30.799Z"}
+{"level":"info","message":"Current Stock Price: 95.69224247593013","timestamp":"2024-10-04T05:03:35.799Z"}
+{"level":"info","message":"Current Stock Price: 145.4842074590419","timestamp":"2024-10-04T05:03:40.809Z"}
+{"level":"info","message":"Current Stock Price: 124.13058566419404","timestamp":"2024-10-04T05:03:45.815Z"}
+{"level":"info","message":"Server is running on http://localhost:3000","timestamp":"2024-10-04T05:04:16.003Z"}
+{"level":"info","message":"Current Stock Price: 130.56982068096409","timestamp":"2024-10-04T05:04:21.813Z"}
+{"level":"info","message":"First trade: Bought at 130.56982068096409. New balance: 9869.430179319035","timestamp":"2024-10-04T05:04:21.813Z"}
+{"level":"info","message":"Current Stock Price: 145.57299149378144","timestamp":"2024-10-04T05:04:26.645Z"}
+{"level":"info","message":"Sold at 145.57299149378144. New balance: 9884.433350131852","timestamp":"2024-10-04T05:04:26.646Z"}
+{"level":"info","message":"Current Stock Price: 119.98696968698803","timestamp":"2024-10-04T05:04:32.152Z"}
+{"level":"info","message":"First trade: Bought at 119.98696968698803. New balance: 9764.446380444864","timestamp":"2024-10-04T05:04:32.153Z"}
+{"level":"info","message":"Current Stock Price: 115.91507118394311","timestamp":"2024-10-04T05:04:36.891Z"}
+{"level":"info","message":"Current Stock Price: 93.82237697642776","timestamp":"2024-10-04T05:04:41.673Z"}
+{"level":"info","message":"Current Stock Price: 135.64618843666761","timestamp":"2024-10-04T05:04:46.676Z"}
+{"level":"info","message":"Sold at 135.64618843666761. New balance: 9780.105599194543","timestamp":"2024-10-04T05:04:46.676Z"}
+{"level":"info","message":"Server is running on http://localhost:3000","timestamp":"2024-10-04T05:04:56.442Z"}
+{"level":"info","message":"Current Stock Price: 122.87066615443263","timestamp":"2024-10-04T05:05:02.084Z"}
+{"level":"info","message":"First trade: Bought at 122.87066615443263. New balance: 9877.129333845567","timestamp":"2024-10-04T05:05:02.085Z"}
+{"level":"info","message":"Current Stock Price: 135.80439379388318","timestamp":"2024-10-04T05:05:07.070Z"}
+{"level":"info","message":"Sold at 135.80439379388318. New balance: 9890.063061485018","timestamp":"2024-10-04T05:05:07.071Z"}
+{"level":"info","message":"Current Stock Price: 101.73387403269635","timestamp":"2024-10-04T05:05:12.369Z"}
+{"level":"info","message":"First trade: Bought at 101.73387403269635. New balance: 9788.329187452322","timestamp":"2024-10-04T05:05:12.369Z"}
+{"level":"info","message":"Current Stock Price: 50.806753234077995","timestamp":"2024-10-04T05:05:17.081Z"}
+{"level":"info","message":"Current Stock Price: 112.44974256254241","timestamp":"2024-10-04T05:05:22.083Z"}
+{"level":"info","message":"Sold at 112.44974256254241. New balance: 9799.045055982167","timestamp":"2024-10-04T05:05:22.084Z"}
+{"level":"info","message":"Current Stock Price: 149.0560576484374","timestamp":"2024-10-04T05:05:27.084Z"}
+{"level":"info","message":"First trade: Bought at 149.0560576484374. New balance: 9649.98899833373","timestamp":"2024-10-04T05:05:27.084Z"}
+{"level":"info","message":"Current Stock Price: 133.63068943480448","timestamp":"2024-10-04T05:05:32.092Z"}
+{"level":"info","message":"Current Stock Price: 69.87102149649644","timestamp":"2024-10-04T05:05:36.959Z"}
